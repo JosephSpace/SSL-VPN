@@ -13,12 +13,12 @@ Features that will work efficiently for you while using this application:
 *Password Change
 *User Control
 
-`pip install flask` installs the Flask framework, allowing you to develop web applications and APIs in Python.
+installs the Flask framework, allowing you to develop web applications and APIs in Python.
 ```
 pip install flask
 ```
 
-`pip install -r requirements.txt` We have stored all the data for you
+We have stored all the data for you
 ```
 pip install -r requirements.txt
 ```
