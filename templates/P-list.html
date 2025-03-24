@@ -1,0 +1,166 @@
+<html>
+    <head>
+    <title>Zksrsylog</title>    
+
+        <link rel="shortcut icon" type="image/png" href="https://images.seeklogo.com/logo-png/15/2/ziraat-bankasi-logo-png_seeklogo-156296.png">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+        
+        <link rel="stylesheet" type="text/css" href="/static/css/main.css">
+        <link rel="stylesheet" type="text/css" href="/static/css/navbar.css">
+        <link rel="stylesheet" type="text/css" href="/static/css/styles.css">
+    </head>
+  <body>
+    	<div class="contain">
+        <nav class="navbar navbar-expand-lg navbar-mainbg navbar-dark bg-dark">
+          <a class="navbar-brand navbar-logo" href="/" style="padding:0;"><img src="https://images.seeklogo.com/logo-png/15/2/ziraat-bankasi-logo-png_seeklogo-156296.png" alt="" style="height:2em">  SSL-VPN RAPOR</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fas fa-bars text-white"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <div class="hori-selector" style="top: 0px; left: 1417.31px; height: 62px; width: 185.781px;"><div class="left"></div><div class="right"></div></div>
+                
+                <li class="nav-item">
+                    <a href="/home"><i class="fas fa-home"></i>Anasayfa</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="/userlog"><i class="far fa-list-alt"></i>Kullanıcı Verileri</a>
+                </li>
+                
+                <li class="nav-item active">
+                  <a class="nav-link disabled" href="javascript:void(0);" tabindex="-1" aria-disabled="true"><i class="fas fa-list-alt"></i>Personel Lisesi</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="/log"><i class="far fa-list-alt"></i>Bilgisayar Verileri</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="/password"><i class="fas fa-key"></i>Şifre Değiştirme</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/logout"><i class="fas fa-sign-out-alt"></i>Çıkış</a>
+                </li>
+                
+            </ul>
+        </div>
+    </nav>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="/static/js/navbar.js"></script>
+    <script src="/static/js/notify.js"></script>
+    <script src="/static/js/notify-styles.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="/static/js/navbar.js"></script>
+
+
+
+<div class="card" style="margin:2%;margin-left:10%;margin-right:10%;padding:2%;">
+
+
+
+<h3>Personel ekle:</h3>
+<form action="." method="POST"><input type="hidden" name="csrfmiddlewaretoken" value="7KYKpY6W3WtOZAOzgFq2ARHTlaqqSa3EAjc1ZPU7YLU98yX0ev6n0BzaH2dNnGRW">
+  <div class="form-group">
+
+  <label for="id_aduser">Aduser:</label><input type="text" name="aduser" class="form-control" maxlength="8" required="" id="id_aduser">
+<label for="id_sicil">Sicil:</label><input type="text" name="sicil" class="form-control" maxlength="6" required="" id="id_sicil">
+<label for="id_ad">Ad:</label><input type="text" name="ad" class="form-control" maxlength="20" required="" id="id_ad">
+<label for="id_soyad">Soyad:</label><input type="text" name="soyad" class="form-control" maxlength="20" required="" id="id_soyad">
+<label for="id_birim">Birim:</label><input type="text" name="birim" class="form-control" maxlength="100" required="" id="id_birim">
+  <small>Personel eklerken dikkatli olunuz.Yanlış işlemlerde admin ile iletişime geçiniz.</small>
+  </div>
+  <button type="submit" class="btn btn-primary">Kaydet</button>
+</form>
+
+</div>
+
+
+<div class="card" style="margin:2%;margin-left:10%;margin-right:10%;padding:2%;">
+
+  <h3>Personel Listesi:</h3>
+  
+  <!-- AD Sunucusunda Arama Formu -->
+  <form action="/personel" method="GET" class="mb-4">
+    <div class="form-group">
+      <div class="input-group">
+        <input type="text" name="search" class="form-control" placeholder="AD sunucusunda ara..." value="{{ search_term }}">
+        <div class="input-group-append">
+          <button type="submit" class="btn btn-primary">Ara</button>
+        </div>
+      </div>
+    </div>
+  </form>
+  
+<table id="table_id" class="display cell-border table-border dataTable no-footer" role="grid">
+  <thead>
+    <tr>
+      <th>AD Kullanıcı</th>
+      <th>Sicil</th>
+      <th>Ad</th>
+      <th>Soyad</th>
+      <th>Birim</th>
+    </tr>
+  </thead>
+  <tbody>
+
+{% if users %}
+  {% for user in users %}
+  <tr role="row" class="{% if loop.index is even %}even{% else %}odd{% endif %}">
+    <td class="sorting_1"> {{ user.aduser }}</td>
+    <td> {{ user.sicil }}</td>
+    <td> {{ user.ad }}</td>
+    <td> {{ user.soyad }}</td>
+    <td> {{ user.birim }}</td>
+  </tr>
+  {% endfor %}
+{% else %}
+  <tr>
+    <td colspan="5" class="text-center">Kullanıcı bulunamadı</td>
+  </tr>
+{% endif %}</tbody>
+</table><div class="dataTables_info" id="table_id_info" role="status" aria-live="polite">Showing 1 to 10 of 3,955 entries</div><div class="dataTables_paginate paging_simple_numbers" id="table_id_paginate"><a class="paginate_button previous disabled" aria-controls="table_id" data-dt-idx="0" tabindex="0" id="table_id_previous">Previous</a><span><a class="paginate_button current" aria-controls="table_id" data-dt-idx="1" tabindex="0">1</a><a class="paginate_button " aria-controls="table_id" data-dt-idx="2" tabindex="0">2</a><a class="paginate_button " aria-controls="table_id" data-dt-idx="3" tabindex="0">3</a><a class="paginate_button " aria-controls="table_id" data-dt-idx="4" tabindex="0">4</a><a class="paginate_button " aria-controls="table_id" data-dt-idx="5" tabindex="0">5</a><span class="ellipsis">…</span><a class="paginate_button " aria-controls="table_id" data-dt-idx="6" tabindex="0">396</a></span><a class="paginate_button next" aria-controls="table_id" data-dt-idx="7" tabindex="0" id="table_id_next">Next</a></div></div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.18/af-2.3.0/b-1.5.2/b-colvis-1.5.2/b-flash-1.5.2/b-html5-1.5.2/b-print-1.5.2/cr-1.5.0/fh-3.1.4/r-2.2.2/datatables.min.css">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.18/af-2.3.0/b-1.5.2/b-colvis-1.5.2/b-flash-1.5.2/b-html5-1.5.2/b-print-1.5.2/cr-1.5.0/fh-3.1.4/r-2.2.2/datatables.min.js"></script>
+<script>
+    $(document).ready( function () {
+    $('#table_id').DataTable({
+
+    dom: 'B<"clear">lfrtip',
+    buttons: {
+        name: 'primary',
+        buttons: [ 'copy', 'csv', 'excel','pdf']
+
+        }}
+    );
+} );
+</script>
+
+</div>
+
+
+<!-- Footer -->
+
+<footer class="page-footer font-small" style="background:#343a40;">
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">
+  <small class="p-in-footer" style="color:#fff;">© 2025 Copyright : Bilgi Güvenliği</small>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+
+
+  
+
+</body></html>

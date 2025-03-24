@@ -1,0 +1,222 @@
+
+      .container-fluid {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        min-width:100%;
+        margin:0px !important;
+        padding:0px !important;
+        background-image:url("");
+        background-repeat:space;
+        }
+        .mycontainer{
+      padding:10%;
+      padding-top:2%;
+      min-height:50%;
+        }
+        .main{
+
+          width:100%;
+          border: solid firebrick;
+          background:firebrick;
+          border-radius: 100px 1% 100px 1%;
+
+
+        }
+        h1{
+          text-align: center !important;
+          padding-top:3%;
+          color:firebrick;
+          font-size:3em;
+          height:12%;
+        }
+        p#ilkparagraf{
+          color:White;
+          margin:10%;
+          margin-top:5% !important;
+        }
+        h2{
+          color:White;
+          padding-top:2%;
+          text-align:center !important;
+          }
+        h3{
+          text-align: center !important;
+          padding-top:1%;
+          height:6%;
+          color:firebrick;
+        }
+
+
+        body{
+          background-color: #e9e9e9 !important;
+        }
+        .card{
+          box-sizing:border-box;
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        main{
+          flex:1;
+        }
+        .contain{
+          display: flex;
+          flex-direction: column;
+          min-height: 100vh;
+        }
+
+
+        .loadingBox {
+          width: 100%;
+          height: 100vh;
+          position: fixed;
+          background-color: #ffffff;
+          top: 0;
+          left: 0;
+          z-index: 1000;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          -webkit-animation: showAndHide 3s forwards;
+          animation: showAndHide 3s forwards;
+      }
+
+      .loadingEffect {
+          width: 400px;
+          height: 400px;
+          border-radius: 50%;
+          position: relative;
+          -webkit-animation: loadingAnimation 1s linear;
+          animation: loadingAnimation 1s linear;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+      }
+
+          .loadingEffect::before {
+              content: '';
+              width: 100%;
+              height: 100%;
+              position: absolute;
+              top: 0;
+              left: 0;
+              border: 10px dashed #ad0f0f;
+              border-radius: 50%;
+          }
+
+      .loadingLogo {
+          position: absolute;
+      }
+
+      .loadingLogo {
+          width: 300px;
+          height: 60px;
+      }
+
+      .loadingNone {
+          opacity: 0;
+          visibility: hidden;
+          transition: all .4s ease-in-out;
+      }
+
+      @keyframes loadingAnimation {
+          0% {
+              transform: scale(0) rotate(90deg);
+              opacity: 0
+          }
+
+          100% {
+              transform: scale(1) rotate(0);
+              opacity: 1
+          }
+      }
+
+      @-webkit-keyframes loadingAnimation {
+          0% {
+              transform: scale(0) rotate(90deg);
+              opacity: 0
+          }
+
+          100% {
+              transform: scale(1) rotate(0);
+              opacity: 1
+          }
+      }
+
+      @keyframes showAndHide {
+          0% {
+              opacity: 1;
+          }
+
+          99% {
+              opacity: 1;
+          }
+
+          100% {
+              opacity: 0;
+              display: none;
+          }
+      }
+
+      @-webkit-keyframes showAndHide {
+          0% {
+              opacity: 1;
+          }
+
+          99% {
+              opacity: 1;
+          }
+
+          100% {
+              opacity: 0;
+              display: none;
+          }
+      }
+
+      @-webkit-keyframes loadingRotate {
+          100% {
+              transform: rotate(360deg);
+          }
+      }
+
+      @keyframes loadingRotate {
+          100% {
+              transform: rotate(360deg);
+          }
+      }
+
+      /*DEP-10892 H.Akan 29.09.2022 */
+#overlay {
+    position: fixed;
+    top: 0;
+    z-index: 99999; /*FancyBox z-index'i 99994 verilmi�*/
+    width: 100%;
+    height: 100%;
+    display: none;
+    background: rgba(0,0,0,0.6);
+}
+
+.cv-spinner {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px #005593 solid;
+    border-top: 4px #FF5C00 solid;
+    border-radius: 50%;
+    animation: sp-anime 0.8s infinite linear;
+}
+
+@keyframes sp-anime {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.is-hide {
+    display: none;
+}

@@ -1,0 +1,160 @@
+<html>
+    <head>
+    <title>Zksrsylog</title>    
+
+        <link rel="shortcut icon" type="image/png" href="https://images.seeklogo.com/logo-png/15/2/ziraat-bankasi-logo-png_seeklogo-156296.png">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="/static/css/main.css">
+        <link rel="stylesheet" type="text/css" href="/static/css/navbar.css">
+    </head>
+  <body>
+    	<div class="contain">
+        <nav class="navbar navbar-expand-lg navbar-mainbg navbar-dark bg-dark">
+            <a class="navbar-brand navbar-logo" href="/" style="padding:0;"><img src="https://images.seeklogo.com/logo-png/15/2/ziraat-bankasi-logo-png_seeklogo-156296.png" alt="" style="height:2em">  SSL-VPN RAPOR</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fas fa-bars text-white"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <div class="hori-selector" style="top: 0px; left: 1417.31px; height: 62px; width: 185.781px;"><div class="left"></div><div class="right"></div></div>
+                
+                <li class="nav-item">
+                    <a href="/home"><i class="fas fa-home"></i>Anasayfa</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="/userlog"><i class="far fa-list-alt"></i>Kullanıcı Verileri</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="/personel"><i class="far fa-list-alt"></i>Personel Listesi</a>
+                </li>
+
+                <li class="nav-item active">
+                    <a class="nav-link disabled" href="javascript:void(0);" tabindex="-1" aria-disabled="true"><i class="fas fa-key"></i>Bilgisayar Verileri</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="/password"><i class="fas fa-key"></i>Şifre Değiştirme</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/logout"><i class="fas fa-sign-out-alt"></i>Çıkış</a>
+                </li>
+                
+            </ul>
+        </div>
+    </nav>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="/static/js/navbar.js"></script>
+<main>
+    <div class="card" style="width: 80%;margin-left: 10%;margin-right: 10%; padding:1%;margin-bottom:2%;margin-top:2%;">
+    <h3>Arama kriterleri:</h3>
+    {% if error %}
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+    </div>
+    {% endif %}
+    <form action="/log" method="POST">
+    <div class="form-row align-items-center">
+        <div class="col-sm-3 my-1">
+        <label class="form-check-label" for="firstdate">Başlangıç tarihi ve saati:</label>
+        <div class="input-group">
+        <input type="date" name="startdate" value="2024-04-25" class="form-control" id="firstdate" required="">
+        </div>
+        <br>
+        </div>
+        <div class="col-sm-3 my-1">
+        <label class="form-check-label" for="lastdate">Bitiş tarihi ve saati:</label>
+        <div class="input-group">
+            <input type="date" name="finishdate" value="2024-05-02" class="form-control" id="lastdate" required="">
+
+        </div>
+        <br>
+        </div>
+        <div class="col-sm-3 my-1">
+        <label class="form-check-label" for="kullaniciadi">Bilgisayar Adı:</label>
+        <div class="input-group">
+            <input type="text" name="pcname" class="form-control" id="kullaniciadi" required="">
+
+        </div>
+        <br>
+        
+        </div>
+        <div class="col-auto my-1">
+                
+        <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+    </div>
+    </form>
+</div>
+
+
+<div class="card" style="width: 80%;margin-left: 10%;margin-right: 10%; padding:1%;margin-bottom:2%;">
+<div id="table_id_wrapper" class="dataTables_wrapper no-footer"><div class="dt-buttons">      <button class="dt-button buttons-copy buttons-html5" tabindex="0" aria-controls="table_id" type="button"><span>Copy</span></button> <button class="dt-button buttons-csv buttons-html5" tabindex="0" aria-controls="table_id" type="button"><span>CSV</span></button> <button class="dt-button buttons-excel buttons-html5" tabindex="0" aria-controls="table_id" type="button"><span>Excel</span></button> <button class="dt-button buttons-pdf buttons-html5" tabindex="0" aria-controls="table_id" type="button"><span>PDF</span></button> </div><div class="clear"></div><div class="dataTables_length" id="table_id_length"><label>Show <select name="table_id_length" aria-controls="table_id" class=""><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div><div id="table_id_filter" class="dataTables_filter"><label>Search:<input type="search" class="" placeholder="" aria-controls="table_id"></label></div><table id="table_id" class="display cell-border table-border dataTable no-footer" role="grid" aria-describedby="table_id_info">
+<thead>
+<tr role="row"><th scope="col" class="table-dark sorting" tabindex="0" aria-controls="table_id" rowspan="1" colspan="1" aria-label="ADuser: activate to sort column ascending" style="width: 219px;">ADuser</th><th scope="col" class="table-dark sorting" tabindex="0" aria-controls="table_id" rowspan="1" colspan="1" aria-label="Bilgisayar Adı: activate to sort column ascending" style="width: 351px;">Bilgisayar Adı</th><th scope="col" class="table-dark sorting" tabindex="0" aria-controls="table_id" rowspan="1" colspan="1" aria-label="Bilgisayar Durumu: activate to sort column ascending" style="width: 447px;">Bilgisayar Durumu</th><th scope="col" class="table-dark sorting_desc" tabindex="0" aria-controls="table_id" rowspan="1" colspan="1" aria-sort="descending" aria-label="tarih ve saati: activate to sort column ascending" style="width: 334px;">tarih ve saati</th></tr>
+</thead>
+<tbody>
+{% if results %}
+  {% for log in results %}
+  <tr role="row" class="{% if loop.index is odd %}odd{% else %}even{% endif %}">
+    <td>{{ log.aduser }}</td>
+    <td>{{ log.computer_name }}</td>
+    <td>{{ log.status }}</td>
+    <td class="sorting_1">{{ log.last_logon }}</td>
+  </tr>
+  {% endfor %}
+{% else %}
+  <tr role="row" class="odd">
+    <td colspan="4" class="text-center">Arama sonucu bulunamadı</td>
+  </tr>
+{% endif %}
+</tbody>
+</table><div class="dataTables_info" id="table_id_info" role="status" aria-live="polite">Showing 1 to 1 of 1 entries</div><div class="dataTables_paginate paging_simple_numbers" id="table_id_paginate"><a class="paginate_button previous disabled" aria-controls="table_id" data-dt-idx="0" tabindex="0" id="table_id_previous">Previous</a><span><a class="paginate_button current" aria-controls="table_id" data-dt-idx="1" tabindex="0">1</a></span><a class="paginate_button next disabled" aria-controls="table_id" data-dt-idx="2" tabindex="0" id="table_id_next">Next</a></div></div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.18/af-2.3.0/b-1.5.2/b-colvis-1.5.2/b-flash-1.5.2/b-html5-1.5.2/b-print-1.5.2/cr-1.5.0/fh-3.1.4/r-2.2.2/datatables.min.css">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.18/af-2.3.0/b-1.5.2/b-colvis-1.5.2/b-flash-1.5.2/b-html5-1.5.2/b-print-1.5.2/cr-1.5.0/fh-3.1.4/r-2.2.2/datatables.min.js"></script>
+<script>
+    $(document).ready( function () {
+    $('#table_id').DataTable({
+    order: [[3, 'desc']],
+    dom: 'B<"clear">lfrtip',
+    buttons: {
+        name: 'primary',
+        buttons: [ 'copy', 'csv', 'excel','pdf']
+
+        }}
+    );
+} );
+</script>
+
+</div>
+
+</main>
+	<!-- Footer -->
+
+<footer class="page-footer font-small" style="background:#343a40;">
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">
+  <small class="p-in-footer" style="color:#fff;">© 2025 Copyright : Bilgi Güvenliği</small>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+
+</div>
+
+
+  
+
+</body></html>
