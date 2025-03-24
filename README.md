@@ -1,2 +1,1 @@
-# SSL-VPN
-The main purpose of the SSL-VPN report page is to be able to retrieve the data of users on your Active Directory server and to bring everything related to this data to your hand more easily.
+https://www.veed.io/view/b8662f4f-1bbf-407f-88de-59a4b57887ec
