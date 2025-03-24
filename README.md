@@ -47,5 +47,24 @@ static/
 └── └── notify-styles.js    
                       
 ```
+## Maintainer
 
+https://github.com/JosephSpace
+
+## Credits
+
+https://github.com/JosephSpace/System-Board 
+
+## Contact
+
+- İnstagram: https://www.instagram.com/f3rrkan/
+- LinkedIn: https://www.linkedin.com/in/yusuf-aşkın-56015b232/
+- Mail: yusufaliaskin@gmail.com
+
+---
+## License
+
+MIT
+
+The included Freeboard code is redistributed per its MIT License.
 
